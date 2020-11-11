@@ -5,6 +5,7 @@ import { useState } from 'react';
 function App() {
   const [testi, setTesti] = useState([]);
   
+  
   function handleFormSubmit(event, testo) {
     event.preventDefault();
     setTesti([...testi, testo])
