@@ -1,14 +1,21 @@
 import Form from './components/Form.js'
 import Lista from './components/Lista.js'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [testi, setTesti] = useState([]);
-  
-  
+  useEffect(() => {
+    localStorage.setItem('userList', JSON.stringify(testi))
+  });
+
+  let initialValue = JSON.parse(localStorage.getItem('userList')) || [];
+
+  const [testi, setTesti] = useState(initialValue);
+  //esportiamo progetto in gitHub
+
   function handleFormSubmit(event, testo) {
     event.preventDefault();
-    setTesti([...testi, testo])
+    setTesti([...testi, testo]);
+
   }
   return (
     <>
